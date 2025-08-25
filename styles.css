@@ -1,0 +1,1015 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #202020;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 20;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: #ed1d24;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ed1d24;
+}
+
+main {
+    margin-top: 60px;
+}
+
+#hero {
+    background-image: linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.7)), url('marvel-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.comics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.character-card {
+    background: white;
+    border-radius: 10px;
+    overflow:hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    position: relative;
+    cursor: pointer;
+    border:3px groove rgb(225, 14, 14);
+}
+.movies-card {
+    background: white;
+    border-radius: 10px;
+    overflow:hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    position: relative;
+    cursor: pointer;
+    border:3px groove rgb(225, 14, 14);
+}
+.comics-card {
+    background: white;
+    border-radius: 10px;
+    overflow:hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    position: relative;
+    cursor: pointer;
+    border:3px groove rgb(225, 14, 14);
+}
+
+.character-card:hover {
+    transform: translateY(-5px);
+}
+.movies-card:hover {
+    transform: translateY(-5px);
+}
+.comics-card:hover {
+    transform: translateY(-5px);
+}
+
+.character-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: fill;
+}
+.movies-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: fill;
+}
+.comics-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: fill;
+}
+
+.character-card h3 {
+    padding: 1rem;
+    text-align: center;
+}
+.movies-card h3 {
+    padding: 1rem;
+    text-align: center;
+}
+.comics-card h3 {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.real-name {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    margin-bottom: 0rem;
+}
+
+.powers {
+    display: none;
+}
+
+.character-card.expanded .powers {
+    display: block;
+    margin-top: 1rem;
+}
+
+.powers h4 {
+    color: #ed1d24;
+    margin-bottom: 0.5rem;
+}
+
+.powers ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.powers li {
+    margin-bottom: 0.3rem;
+    position: relative;
+}
+
+.powers li:before {
+    content: "•";
+    color: #ed1d24;
+    position: absolute;
+    left: -1rem;
+}
+
+footer {
+    background-color: #202020;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.movies-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.movies-card:hover {
+    transform: translateY(-5px);
+}
+
+.movies-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.movies-card h3 {
+    padding: 1rem;
+    text-align: center;
+}
+
+.character-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.character-popup.active {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.popup-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 900px;
+    width: 90%;
+    position: relative;
+    border: 3px solid #ed1d24;
+}
+
+.character-details {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 30px;
+}
+
+.character-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #ed1d24;
+}
+
+.character-info h2 {
+    color: #ed1d24;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.character-info .real-name {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.powers-list {
+    margin-top: 20px;
+}
+
+.powers-list h3 {
+    color: #ed1d24;
+    margin-bottom: 15px;
+}
+
+.powers-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.powers-list li {
+    padding: 10px 15px;
+    margin: 8px 0;
+    background: #f5f5f5;
+    border-radius: 8px;
+    border-left: 4px solid #ed1d24;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.powers-list li:hover {
+    transform: translateX(10px);
+    background: #ffeaea;
+}
+
+.power-icon {
+    margin-right: 10px;
+    color: #ed1d24;
+}
+
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ed1d24;
+    transition: transform 0.3s;
+}
+
+.close-popup:hover {
+    transform: rotate(90deg);
+}
+
+/* Hero Section Animation */
+#hero h1 {
+    animation: fadeInDown 1.2s ease-out;
+}
+
+#hero p {
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* Character Cards Animation */
+.character-card {
+    animation: fadeIn 0.6s ease-out;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.character-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(237, 29, 36, 0.2);
+}
+
+/* Movies and Comics Cards Animation */
+.movies-card, .comics-card {
+    animation: fadeIn 0.6s ease-out;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movies-card:hover, .comics-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation Animation */
+nav ul li a {
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ed1d24;
+    transition: width 0.3s ease-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Keyframes for animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Section Headers Animation */
+section h2 {
+    position: relative;
+    display: inline-block;
+    animation: fadeIn 1s ease-out;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #ed1d24, transparent);
+    animation: slideRight 1s ease-out forwards;
+}
+
+@keyframes slideRight {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Smooth Page Load */
+body {
+    opacity: 0;
+    animation: pageLoad 1s ease-out forwards;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.more-link {
+    text-decoration: none;
+}
+
+#character-button {
+    background-color: #ed1d24;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#character-button:hover {
+    background-color: #c41818;
+    transform: scale(1.05);
+}
+
+.character-more-grid {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#all-characters {
+    padding-top: 80px;
+}
+
+#all-characters h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ed1d24;
+}
+
+.extended-character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+#movies-button, #comics-button {
+    background-color: #ed1d24;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#movies-button:hover, #comics-button:hover {
+    background-color: #c41818;
+    transform: scale(1.05);
+}
+
+.movies-more-grid, .comics-more-grid {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#all-movies, #all-comics {
+    padding-top: 80px;
+}
+
+#all-movies h1, #all-comics h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ed1d24;
+}
+.extended-movies-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem;
+}
+
+.phase-section {
+    width: 100%;
+}
+
+.phase-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.movies-card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+}
+
+.phase-section h2 {
+    text-align: left;
+    color: #ed1d24;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid #ed1d24;
+    padding-bottom: 10px;
+    width: fit-content;
+}
+
+/* Scrollbar styling for phase-grid */
+.phase-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.phase-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.phase-grid::-webkit-scrollbar-thumb {
+    background: #ed1d24;
+    border-radius: 4px;
+}
+
+.phase-grid::-webkit-scrollbar-thumb:hover {
+    background: #c41818;
+}
+.phase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.movie-details {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+}
+
+.movie-details img {
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid #ed1d24;
+}
+
+.movie-info h2 {
+    color: #ed1d24;
+    margin-bottom: 15px;
+}
+
+/* Remove the conflicting popup styles */
+.movie-popup,
+.movie-popup.active,
+.popup-content,
+.movie-details,
+.movie-details img,
+.movie-info h2 {
+    display: none;
+}
+
+/* Update character popup styles */
+.character-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+}
+
+.character-popup.active {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    display: block !important;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 900px;
+    width: 90%;
+    position: relative;
+    border: 3px solid #ed1d24;
+}
+
+.character-details {
+    display: grid !important;
+    grid-template-columns: 350px 1fr;
+    gap: 30px;
+}
+
+.character-image img {
+    display: block !important;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #ed1d24;
+}
+
+.character-info h2 {
+    display: block !important;
+    color: #ed1d24;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.character-info .real-name {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.powers-list {
+    margin-top: 20px;
+}
+
+.powers-list h3 {
+    color: #ed1d24;
+    margin-bottom: 15px;
+}
+
+.powers-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.powers-list li {
+    padding: 10px 15px;
+    margin: 8px 0;
+    background: #f5f5f5;
+    border-radius: 8px;
+    border-left: 4px solid #ed1d24;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.powers-list li:hover {
+    transform: translateX(10px);
+    background: #ffeaea;
+}
+
+.power-icon {
+    margin-right: 10px;
+    color: #ed1d24;
+}
+
+.close-popup {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ed1d24;
+    transition: transform 0.3s;
+}
+
+.close-popup:hover {
+    transform: rotate(90deg);
+}
+
+/* Hero Section Animation */
+#hero h1 {
+    animation: fadeInDown 1.2s ease-out;
+}
+
+#hero p {
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* Character Cards Animation */
+.character-card {
+    animation: fadeIn 0.6s ease-out;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.character-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(237, 29, 36, 0.2);
+}
+
+/* Movies and Comics Cards Animation */
+.movies-card, .comics-card {
+    animation: fadeIn 0.6s ease-out;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movies-card:hover, .comics-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation Animation */
+nav ul li a {
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ed1d24;
+    transition: width 0.3s ease-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Keyframes for animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Section Headers Animation */
+section h2 {
+    position: relative;
+    display: inline-block;
+    animation: fadeIn 1s ease-out;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #ed1d24, transparent);
+    animation: slideRight 1s ease-out forwards;
+}
+
+@keyframes slideRight {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Smooth Page Load */
+body {
+    opacity: 0;
+    animation: pageLoad 1s ease-out forwards;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.more-link {
+    text-decoration: none;
+}
+
+#character-button {
+    background-color: #ed1d24;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#character-button:hover {
+    background-color: #c41818;
+    transform: scale(1.05);
+}
+
+.character-more-grid {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#all-characters {
+    padding-top: 80px;
+}
+
+#all-characters h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ed1d24;
+}
+
+.extended-character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+#movies-button, #comics-button {
+    background-color: #ed1d24;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#movies-button:hover, #comics-button:hover {
+    background-color: #c41818;
+    transform: scale(1.05);
+}
+
+.movies-more-grid, .comics-more-grid {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#all-movies, #all-comics {
+    padding-top: 80px;
+}
+
+#all-movies h1, #all-comics h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ed1d24;
+}
+.extended-movies-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem;
+}
+
+.phase-section {
+    width: 100%;
+}
+
+.phase-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.movies-card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+}
+
+.phase-section h2 {
+    text-align: left;
+    color: #ed1d24;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid #ed1d24;
+    padding-bottom: 10px;
+    width: fit-content;
+}
+
+/* Scrollbar styling for phase-grid */
+.phase-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.phase-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.phase-grid::-webkit-scrollbar-thumb {
+    background: #ed1d24;
+    border-radius: 4px;
+}
+
+.phase-grid::-webkit-scrollbar-thumb:hover {
+    background: #c41818;
+}
+.phase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.movie-details {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+}
+
+.movie-details img {
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid #ed1d24;
+}
+
+.movie-info h2 {
+    color: #ed1d24;
+    margin-bottom: 15px;
+}

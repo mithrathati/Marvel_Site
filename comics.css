@@ -1,0 +1,46 @@
+.extended-comics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.comics-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+    border: 3px groove #ed1d24;
+}
+
+.comics-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.comics-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.comics-card h3 {
+    padding: 1rem;
+    text-align: center;
+    color: #333;
+}
+
+.comics-info {
+    padding: 15px;
+    background: #f8f8f8;
+    border-top: 2px solid #ed1d24;
+}
+
+.comics-info p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}

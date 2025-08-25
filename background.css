@@ -1,0 +1,230 @@
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
+        url('ironman-bg.jpg');
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+main {
+    position: relative;
+}
+
+main::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 50% 50%, 
+            rgba(237, 29, 36, 0.05) 0%,
+            transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.section-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            rgba(237, 29, 36, 0.03) 0%,
+            rgba(237, 29, 36, 0.03) 10%,
+            transparent 10%,
+            transparent 20%
+        );
+    animation: backgroundShift 30s linear infinite;
+}
+
+@keyframes backgroundShift {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.card-glow {
+    position: relative;
+}
+
+.card-glow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, 
+        rgba(237, 29, 36, 0.2),
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card-glow:hover::after {
+    opacity: 1;
+}
+
+@keyframes energyPulse {
+    0% { transform: scale(1); opacity: 0.1; }
+    50% { transform: scale(1.2); opacity: 0.3; }
+    100% { transform: scale(1); opacity: 0.1; }
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes comicFlip {
+    0% { transform: perspective(1000px) rotateY(0); }
+    100% { transform: perspective(1000px) rotateY(360deg); }
+}
+
+@keyframes powerGlow {
+    0% { box-shadow: 0 0 10px rgba(237, 29, 36, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(237, 29, 36, 0.8); }
+    100% { box-shadow: 0 0 10px rgba(237, 29, 36, 0.5); }
+}
+
+.hero-section img {
+    animation: heroFloat 6s ease-in-out infinite;
+}
+
+.character-card:hover {
+    animation: powerGlow 2s infinite;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.comics-card:hover {
+    animation: comicFlip 1.5s ease-out;
+}
+
+.energy-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(237, 29, 36, 0.2), transparent 70%);
+    animation: energyPulse 3s infinite;
+}
+
+.marvel-logo {
+    position: relative;
+    overflow: hidden;
+}
+
+.marvel-logo::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    animation: logoShine 3s infinite;
+}
+
+@keyframes logoShine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.phase-title {
+    position: relative;
+    display: inline-block;
+}
+
+.phase-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ed1d24, transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: phaseReveal 1s forwards;
+}
+
+@keyframes phaseReveal {
+    to { transform: scaleX(1); }
+}
+
+.character-entrance {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: characterEntrance 0.8s forwards;
+}
+
+@keyframes characterEntrance {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.infinity-stones {
+    position: fixed;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.infinity-stone {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: stoneFloat 10s infinite;
+}
+
+@keyframes stoneFloat {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(20px, -20px); }
+    50% { transform: translate(0, -40px); }
+    75% { transform: translate(-20px, -20px); }
+}
+
+.portal-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(237, 29, 36, 0.1),
+        transparent 360deg
+    );
+    animation: portalSpin 8s linear infinite;
+}
+
+@keyframes portalSpin {
+    to { transform: rotate(360deg); }
+}
